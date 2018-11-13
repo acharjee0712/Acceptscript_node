@@ -31,7 +31,7 @@ https://10.173.102.22:1482/index_all.html
 Below are the sample URLs of web api methods
 
 * AcceptJSRequestUrl : URL to invoke Accept JS web service on payment.
-![Image of AcceptJSRequestUrl](Github-Images/AcceptjSRequestUrl.JPG)
+![Image of AcceptJSRequestUrl](Github-Images/AcceptjsRequestUrl.JPG)
 * AcceptHostedRequestUrl : URL to get the token value for Accept Hosted.
 ![Image of HostedRequestUrl](Github-Images/Hostedrequesturl.JPG)
 * AcceptCustomerRequestUrl : URL to get the token value for Accept Customer.
