@@ -31,13 +31,13 @@ https://10.173.102.22:1482/index_all.html
 Below are the sample URLs of web api methods
 
 * AcceptJSRequestUrl : URL to invoke Accept JS web service on payment.
-![Image of AcceptJSRequestUrl](express-sendfile/Github-Images/AcceptjSRequestUrl.JPG)
+![Image of AcceptJSRequestUrl](Github-Images/AcceptjSRequestUrl.JPG)
 * AcceptHostedRequestUrl : URL to get the token value for Accept Hosted.
-![Image of HostedRequestUrl](express-sendfile/Github-Images/Hostedrequesturl.JPG)
+![Image of HostedRequestUrl](Github-Images/Hostedrequesturl.JPG)
 * AcceptCustomerRequestUrl : URL to get the token value for Accept Customer.
-![Image of CustomerRequestUrl](express-sendfile/Github-Images/CustomerRequesturl.JPG)
+![Image of CustomerRequestUrl](Github-Images/CustomerRequesturl.JPG)
 * ValidateCustomerRequestUrl : URL to invoke a web api method to validated customer ID.
-![Image of ValidateCustomerUrl](express-sendfile/Github-Images/ValidCustomerrequest.JPG)
+![Image of ValidateCustomerUrl](Github-Images/ValidCustomerrequest.JPG)
  
 
 The following are the parameters with values that remains constant throughout the application. These parameters are used in script through Ajax calls for performing payments.
@@ -107,7 +107,7 @@ C:\Users\nacharje\Node\test>
 
 * copy the myapp folder to the newly created folder
 * copy the expree-sendfile folder to the newly created folder 
-* open "constants.js"  file  & modifie the  below   url by changing only the ip address(10.173.102.22) with your local syatem ip address.(open cmmond prompt, type ipconfig, find your system ip address)ss
+* open "constants.js"  file  & modifie the  below   url by changing only the ip address(10.173.102.22) with your local syatem ip address.(open cmmond prompt, type ipconfig, find your system ip address)
                                                                                                                                   
  AcceptJSRequestUrl : 'https://10.173.102.22:8080/myapp/acceptsuite/AcceptJs',
 
@@ -127,4 +127,4 @@ C:\Users\nacharje\Node\test>
 
 Sample URL: https://10.173.102.22:1482/index_all.html
 
-![Image of dashboard](express-sendfile/Github-Images/dashboard.PNG)
+![Image of dashboard](Github-Images/dashboard.PNG)
