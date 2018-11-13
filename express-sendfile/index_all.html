@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Authorize.Net Accept Sample Application</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="scripts/bootstrap.min.css" rel="stylesheet">
+ 
+	<style type="text/css">
+	body{
+		 /*font-family:  Century Gothic,Regular!important;*/
+		 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif!important;
+		 /*background: url('images/AdobeStock_191284997.jpeg'); */
+		 background: url('images/background_cloth.jpg') no-repeat;
+		 padding-top: 50px;
+		 background-size: 100% 100%;
+		 background-attachment: fixed;
+		 font-size: 14px;
+	}
+		.navbar {min-height: 0px; margin-bottom: 0px; border: 0px;height: 50px;}
+		.nav>li {display: inline-block;}
+		.navbar-centered .nav > li > a {border: none !important; font-weight: 500 !important;color: white}
+		.navbar-inverse { background-color: steelblue} /* #7B7B7B  #565758*/
+		.navbar-centered .nav > li > a:hover{ background-color: white; color: steelblue;font-weight: 600 !important;}
+		.navbar-centered .nav > li > a::after{ display: block;font-weight: bold;height: 0;overflow:hidden;visibility: hidden;content: attr(title);}
+		.navbar-centered .nav .active > a,.navbar-centered .navbar-nav > .active > a:focus { background-color: white; color: black; font-weight:bold; }
+		.navbar-centered .navbar-nav { float: none; text-align: center; }
+	    .navbar-centered .navbar-nav > li { float: none; }
+	    .navbar-centered .nav > li { display: inline; }
+	    .navbar-centered .nav > li > a {display: inline-block; }
+	    #home { color:ivory; margin-left: 15%; margin-right: 15%;}
+		@media (min-width: 768px) {
+	    	.navbar-centered .nav > li > a { width:15%; }
+	    	#home { font-size: 30px}
+
+	    }
+	    @media (min-width:360px ) and (max-width: 768px){
+	    	.navbar-centered .nav > li > a {font-size: 12px}
+	    	#home { font-size: 20px;margin-top: 226px !important;}
+	    	.navbar {height: 200px}
+	    }
+	    @media (max-width: 360px) {
+	    	.navbar-centered .nav > li > a {font-size: 10px}
+	    	#home { font-size: 15px;margin-top: 165px;}
+	    	.navbar {height: 200px}
+	    }
+	    @media (min-width: 1022px) {
+	    	.modal-dialog { width: 850px}
+	    	#add_shipping { height: 300px }
+	    }
+		.navbar{
+			border-radius: 2px;
+		}
+
+		.navbar-centered{
+			padding-left: 90px !important;
+		}
+	.productTypes>li
+	{
+    padding-right: 35px;
+	}
+	.productTypes>li:last-child
+	{
+    padding-right: 0px;
+	}
+     .productTypes>li>a
+	{
+		font-weight: bold;
+    font-size: 16px;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 15px 0 15px 0;
+	}
+    #home
+	{
+		margin-top: 157px;
+		    /*height: 48%;*/
+    position: absolute;
+    display: table;
+	/*display: block;
+    margin-top: 188px;
+    font-size: 20px;
+    color: #555;
+    font-weight: 600;*/
+	}
+	.homeText{
+		font-size: 23px;
+    color: #555;
+    font-weight: 600;
+    display: table-cell;
+    vertical-align: middle;
+	}
+	.textBox{
+		width: 35%;
+		padding-left: 0%;
+	}
+	.scenario
+	{
+		padding-top: 6%;
+		padding-left: 1.5%;
+		display: none;
+	}
+	.invalidCustomerDiv
+	{
+		width: 20%;
+		padding-top: 0.5%;
+	}
+	.invalidCustomerSpan{
+		padding: 0.5%;
+		display: none;
+		background-color: unset;
+		border: none;
+	}
+	.customerIdlabel
+	{
+		padding-top: 1%;
+		width: 22%;
+       padding-right: 0;
+       padding-left: 1.5%;
+       /*font-weight: 100;*/
+	}
+	.modal-content{
+	    width: 500px;
+	    height:  inherit;
+	    margin:  0 auto;
+	}
+	.modal-align-center{
+	    display:  table-cell;
+	    vertical-align: middle;
+	}
+	.modal-align-center-helper{
+	    display: table;
+	    width: 100%;
+	    height: 100%;
+	}
+	#txtCustomerId{
+		height: 28px;
+	}
+	#info
+	{
+		margin-top: 7px;
+		font-size: 16px;
+	}
+	
+	.modal-footer .btn
+	{
+		padding: 3px 6px;
+	}
+	.msgDiv
+	{
+		margin-top: 12px;
+		padding-left: 1.5%;
+	}
+	.center{
+      text-align: center !important;
+    }
+    .paddingB10{
+    padding-bottom: 10px;
+}
+.visa-ui-btn-text{
+  display: flex;
+    border-radius: 0;
+    cursor: pointer!important;
+    font-family: OpenSans,sans-serif;
+    font-size: 100%;
+    outline: 0;
+    transition: background .25s ease;
+    align-items: center;
+    margin-bottom: 12px !important;
+    /*background: #003ea9;*/
+    background: steelblue;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 700;
+    justify-content: center;
+    letter-spacing: .05357rem;
+    margin: 0rem .35714rem .14286rem .35714rem;
+    min-height: 50px;
+    min-width: 165px;
+    padding: 6%!important;
+    text-decoration: none;
+    margin-left: 25%;
+    /*border-radius: 10px;*/
+    /*box-shadow: 3px 3px 3px -1px #333*/
+    /*text-transform: uppercase;*/
+}
+button:hover{
+	/*background-color: #052f52;*/
+	background: linear-gradient(steelblue,#052f52);
+	/*color: steelblue;*/
+}
+.containerDiv
+{
+	width: 100%; margin: 0; padding:0
+}
+.JSDiv{
+	width: 90%;margin-left: 3%;
+}
+.tabs{
+text-decoration-line: none !important;color: white !important;font-size:medium; 
+}
+.mTitle{
+text-align: center;font-weight: 600;
+}
+
+ 
+
+ 
+
+.headerBtnCustomer{
+    width: 176px !important;
+    font-size: 18px !important;
+    height: 48px;
+}
+
+.headerBtnJs{
+    width: 120px !important;
+    font-size: 18px !important;
+    height: 48px;
+}
+
+.headerBtnJsUI{
+    width: 135px !important;
+    font-size: 18px !important;
+    height: 48px;
+}
+
+.headerBtnHosted{
+    width: 155px !important;
+    font-size: 18px !important;
+    height: 48px;
+}
+
+.btnsList{
+	padding-right: 8% !important;
+}
+
+.btnsListJS{
+	padding-right: 7.3% !important;
+}
+
+	</style>
+	<script src="scripts/jquery-2.1.4.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/jquery.cookie.js"></script>
+	<script src="app.js"></script>
+	<script src="constants.js"></script>
+	<script src="https://sandbox-assets.secure.checkout.visa.com/checkout-widget/resources/js/integration/v1/sdk.js"></script>
+	<!-- <script src="https://includestest.ccdc02.com/cardinalcruise/v1/songbird.js"></script> -->
+</head>
+<body>
+
+<div class="col-xs-12" style="padding: 0">
+	<div class="container-fluid containerDiv">
+		<div class="navbar navbar-inverse" role="navigation">
+			<div class="container-fluid navbar-centered">
+				<ul class="nav navbar-nav productTypes" style="margin-top: 0px; margin-bottom:0px; margin-left:auto;padding-top: 1px;">
+					<li class="btnsListJS"><a class="headerBtnJs"  href="index.html?producttype=acceptjs" title="Accept.js">Accept.js</a></li>
+					<li class="btnsList"><a class="headerBtnJsUI" href="index.html?producttype=acceptui" title="Accept.js UI">Accept.js UI</a></li>
+					<li class="btnsList"><a class="headerBtnHosted" href="index.html?producttype=accepthosted" title="Accept Hosted">Accept Hosted</a></li>
+					<!-- <li><a href="#" onclick="ShowModal()" data-toggle="modal" data-target="#customerId">Accept Customer</a></li> -->
+					<li class="btnsList"><a class="headerBtnCustomer" href="index.html?producttype=acceptcustomer" title="Accept Customer">Accept Customer</a></li>
+				</ul>
+		    </div>
+	    </div>
+	<!-- </div> -->
+     <!-- <div class="col-md-12 JSDiv">
+     	<div class="col-md-3">
+     		<a href="index.html?producttype=acceptjs" class="tabs">
+		  <button type="button"  class="visa-ui-btn-text" aria-label="Text Button">
+	          Accept.js
+          </button>
+          </a>
+         </div>
+         <div class="col-md-3">
+	          <a href="index.html?producttype=acceptui" class="tabs">
+
+         	<button type="button"  class="visa-ui-btn-text" aria-label="Text Button">
+         		Accept.js UI
+          </button>
+          </a>
+         </div>
+          <div class="col-md-3">
+	          <a href="index.html?producttype=accepthosted" class="tabs">
+
+          	<button type="button"  class="visa-ui-btn-text" aria-label="Text Button">
+          		Accept Hosted
+          </button>
+          </a>
+          </div>
+          <div class="col-md-3">
+	          <a href="index.html?producttype=acceptcustomer" class="tabs">
+
+          	<button type="button"  class="visa-ui-btn-text" aria-label="Text Button">
+          		Accept Customer
+          </button>
+          </a>
+          </div>
+     </div> -->
+     <!-- <div class="col-md-12" style="width: 90%;margin-left: 3%">
+     	<div class="col-md-3">
+     	
+              <button type="button"  class="visa-ui-btn-text" onclick="LoadAcceptPage('acceptJs')" >
+	          Accept.js</button></a>
+         </div>
+         <div class="col-md-3">
+         	
+          <button type="button"  class="visa-ui-btn-text" onclick="LoadAcceptPage('acceptUi')" >
+	          Accept.js UI</button></a>
+         </div>
+          <div class="col-md-3">
+          	<
+          <button type="button"  class="visa-ui-btn-text" onclick="LoadAcceptPage('acceptHosted')" >
+	          Accept Hosted</button></a>
+          </div>
+          <div class="col-md-3">
+          	
+          <button type="button"  class="visa-ui-btn-text" onclick="LoadAcceptPage('acceptCustomer')" >
+	          Accept Customer</button></a>
+          </div>
+     </div> -->
+    </div>
+    </div>
+   <div class="tab-content panel-group">
+		<div  id="home" align="center" >
+			<p class="homeText">
+	      “Select any of above Authorize.Net Accept suite product type to experience the ease of building websites and mobile applications without increasing PCI burden for merchants using our JavaScript libraries and hosted forms” </p>
+	    </div>
+	</div>
+	<div id="customerId" class="modal">
+	<div class="modal-align-center-helper">
+		<div class="modal-dialog modal-align-center">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title mTitle">Accept Customer</h4>
+				</div>
+				<div class="modal-body col-xs-12">
+					<label class="col-xs-3 customerIdlabel">Customer ID:</label> 
+                    <div class="col-xs-9 textBox">
+					    <input type="text" id="txtCustomerId" class="form-control " name="customerId" onkeypress="return isNumber(event)">
+					</div>
+					<a href="javascript:void(0);" title="Click here to check for different options to create Customer ID" onclick="showInfo()"><span class="glyphicon glyphicon-info-sign" id="info" ></span></a>
+					<div class="scenario" id="idScenarios">
+					    <h6>
+					    	Use the existing customer profile ID, which is provided in the sample application documentation. 
+					    </h6>
+					    <h6 class="paddingB10 center">(or)</h6>
+					    <h6>
+					    	Create new customer profile ID using <a href="https://developer.authorize.net/api/reference/#customer-profiles-create-customer-profile" target="_blank">Dev Center</a> by calling CreateCustomerProfile API with default Sandbox login credentials.
+					    </h6>
+					    <h6 class="paddingB10 center">(or)</h6>
+					    <h6>
+					    	Create new customer profile ID using <a href="https://developer.authorize.net/api/reference/#customer-profiles-create-customer-profile" target="_blank">Dev Center</a> by calling CreateCustomerProfile API with developer owned(existing or create new) Sandbox login credentials. 
+					    </h6>
+					 </div>
+					 <div class="msgDiv">
+						<span id="invalidCustomer" class="alert alert-danger invalidCustomerSpan"></span>
+					 </div>
+
+				</div>
+				<div class="modal-footer">
+				    <button onclick="Redirect()" class="btn btn-primary">Continue</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+</body>
+</html>
