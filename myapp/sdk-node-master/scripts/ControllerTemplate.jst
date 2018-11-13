@@ -1,0 +1,21 @@
+class APICONTROLLERNAMEController extends APIOperationBase {
+	constructor(apiRequest) {
+		logger.debug('Enter APICONTROLLERNAMEController constructor');
+		super(apiRequest);
+		logger.debug('Exit APICONTROLLERNAMEController constructor');
+	}
+
+	validateRequest(){
+		logger.debug('Enter validateRequest');
+
+		logger.debug('Exit validateRequest');
+		return;
+	}
+
+	getRequestType(){
+		return 'APICONTROLLERNAMERequest';
+	}
+}
+
+module.exports.APICONTROLLERNAMEController = APICONTROLLERNAMEController;
+

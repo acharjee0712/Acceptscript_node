@@ -1,0 +1,30 @@
+{
+  "name": "sample-code-node",
+  "version": "1.0.0",
+  "description": "Sample code for nodejs sdk",
+  "main": "constants.js",
+  "dependencies": {
+    "authorizenet": "^1.0.3",
+    "chai": "^3.5.0",
+    "eslint": "^2.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AuthorizeNet/sample-code-node.git"
+  },
+  "keywords": [
+    "AuthorizeNet",
+    "sample",
+    "codes"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AuthorizeNet/sample-code-node/issues"
+  },
+  "homepage": "https://github.com/AuthorizeNet/sample-code-node#readme"
+}
