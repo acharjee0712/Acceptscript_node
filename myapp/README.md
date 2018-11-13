@@ -28,9 +28,9 @@ Eg:- https://10.173.102.22:1482/myapp/acceptsuite/AcceptJs?apiLoginId=VALUE&apiT
 
 ## QueryParameter Details
 
-AcceptJs and AcceptJS UI - apiLoginId, apiTransactionKey, Token
-AcceptHosted without customer profile - apiLoginId, apiTransactionKey, iframeCommunicatorUrl
-AcceptHosted with customer profile - apiLoginId, apiTransactionKey, customerId, iframeCommunicatorUrl
-AcceptCustomer - apiLoginId, apiTransactionKey, iframeCommunicatorUrl, customerId
+1>AcceptJs and AcceptJS UI - apiLoginId, apiTransactionKey, Token
+2>AcceptHosted without customer profile - apiLoginId, apiTransactionKey, iframeCommunicatorUrl
+3>AcceptHosted with customer profile - apiLoginId, apiTransactionKey, customerId, iframeCommunicatorUrl
+4>AcceptCustomer - apiLoginId, apiTransactionKey, iframeCommunicatorUrl, customerId
 
  
