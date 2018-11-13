@@ -1,9 +1,9 @@
 # Accept Suite
-@@ -9,6 +9,7 @@ Developer Guide to deploy the Node.js using Express.js Web API Application 
+Developer Guide to deploy the Node.js using Express.js Web API Application 
 
 
  
- @@ -9,6 +9,7 @@ These instructions will get you a copy of the project up and running on your loc
+ 
 ## Prerequisite:
 * Sublime Text or  visual studio code 2017 or any editor of your choice.
 * Node.js version 4.8.4 or higher
@@ -16,7 +16,8 @@
 * Displayed on successful deployment in console:-
  server started in 8080
  
-##URL format of Accept Suite WEB
+## URL format of Accept Suite WEB
+
 https://ipaddress:portnumber/myapp/acceptsuite/METHODNAME?REQUIREDQUERYPARAMETERS
 0r
 https://localhost:portnumber/myapp/acceptsuite/METHODNAME?REQUIREDQUERYPARAMETERS
@@ -25,7 +26,7 @@ https://localhost:portnumber/myapp/acceptsuite/METHODNAME?REQUIREDQUERYPARAMETER
 Eg:- https://10.173.102.22:1482/myapp/acceptsuite/AcceptJs?apiLoginId=VALUE&apiTransactionKey=VALUE&Token=VALUE
      https://localhost:1482/myapp/acceptsuite/AcceptJs?apiLoginId=VALUE&apiTransactionKey=VALUE&Token=VALUE
 
-####QueryParameter Details
+## QueryParameter Details
 
 AcceptJs and AcceptJS UI - apiLoginId, apiTransactionKey, Token
 AcceptHosted without customer profile - apiLoginId, apiTransactionKey, iframeCommunicatorUrl
