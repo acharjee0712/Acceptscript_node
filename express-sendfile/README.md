@@ -1,9 +1,14 @@
-# Accept Suite Integration with .Net Core WEB API
+# Accept Suite Integration with Express.js  WEB API
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
 
 ## Prerequisite:
-*	Windows 10 Professional
-*	Sublime Text or any HTML editor.
-*	Internet Information Services 10
+*	Node.js 4.1.2 or higher
+*	Sublime Text/Visual studio code 2017 or any HTML editor.
+*	Express.js
 
 ## Very detailed explanation of each product type.
 Authorized.Net Accept suite has below products.
@@ -18,80 +23,108 @@ https://developer.authorize.net/api/reference/features/acceptjs.html
 https://developer.authorize.net/api/reference/features/accept_hosted.html
 https://developer.authorize.net/api/reference/features/customer_profiles.html#Using_the_Accept_Customer_Hosted_Form
 
-## Web API Calls Integration with UI Application
+## Integration
+Constants.js file consists of required URLs that are used for WEB API calls and constant parameters that are used throughout the application.
 
+URL format when deployed in Heroku
+https://10.173.102.22:1482/index_all.html
+Below are the sample URLs of web api methods
 
-* Constants.js file contains keys where WEB API URL's can be updated. 
-
-* Open the folder **AcceptSuite-DotNetCore-WebAPI**
-
-* Detailed steps are explained on how to deploy on IIS.
-
-* Once deployed Successfully , update the URL's in Constants.js file as described below.
-
-
-The URLs should be provided with IP address and API service site port number in the following format.
-
-**https://IPAddress:PortNumber/api/AcceptSuite/<ApiMethodName>**
-
-* AcceptJSRequestUrl : URL to invoke Accept JS web service.
-
-	**Sample URL: https://IPAddress:PortNumber/api/AcceptSuite/AcceptJS**
-
-![Image of AcceptJSRequestUrl](Github-Images/AcceptJSRequestUrl.PNG)
-
+* AcceptJSRequestUrl : URL to invoke Accept JS web service on payment.
+![Image of AcceptJSRequestUrl](express-sendfile/Github-Images/AcceptjSRequestUrl.JPG)
 * AcceptHostedRequestUrl : URL to get the token value for Accept Hosted.
-
-	**Sample URL: https://IPAddress:PortNumber/api/AcceptSuite/AcceptHosted**
-
-![Image of HostedRequestUrl](Github-Images/HostedRequestUrl.PNG)
-
+![Image of HostedRequestUrl](express-sendfile/Github-Images/Hostedrequesturl.JPG)
 * AcceptCustomerRequestUrl : URL to get the token value for Accept Customer.
-
-	**Sample URL: https://IPAddress:PortNumber/api/AcceptSuite/AcceptCustomer**
-
-![Image of CustomerRequestUrl](Github-Images/CustomerRequestUrl.PNG)
-
-* ValidateCustomerRequestUrl : URL to invoke a web api method to validate customer ID.
-
-	**Sample URL: https://IPAddress:PortNumber/api/AcceptSuite/ValidateCustomer**
-
-![Image of ValidateCustomerUrl](Github-Images/ValidateCustomerUrl.PNG)
+![Image of CustomerRequestUrl](express-sendfile/Github-Images/CustomerRequesturl.JPG)
+* ValidateCustomerRequestUrl : URL to invoke a web api method to validated customer ID.
+![Image of ValidateCustomerUrl](express-sendfile/Github-Images/ValidCustomerrequest.JPG)
  
 
 The following are the parameters with values that remains constant throughout the application. These parameters are used in script through Ajax calls for performing payments.
 
 * ClientKey 
-
-![Image of clientKey](Github-Images/clientKey.PNG)
-
 * ApiLoginID
-
-![Image of apiLogin](Github-Images/apiLogin.PNG)
-
 * ApiTransactionKey
 
-![Image of apiTransactionKey](Github-Images/apiTransactionKey.PNG)
+### Steps to deploy the application in Express.js
+
+*  Create a folder to your local system	
+*  Open the Node.js command prompt
+*  give the path to the newly created local folder
+*  Run the command "npm init"
+* give "entry point: as server.js"
+* type yes & then press enter
+* run the command "npm install express"
+## Example:-
+C:\Program Files\nodejs>cd C:\Users\nacharje\Node\test
+
+C:\Users\nacharje\Node\test>npm init
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (test)
+version: (1.0.0)
+description:
+entry point: (index.js) server.js
+test command:
+git repository:
+keywords:
+author:
+license: (ISC)
+About to write to C:\Users\nacharje\Node\test\package.json:
+
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
 
 
-### Create Website on IIS
+Is this ok? (yes) yes
 
-*	Open IIS as Administrator.
+C:\Users\nacharje\Node\test> npm install express
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN test@1.0.0 No description
+npm WARN test@1.0.0 No repository field.
 
-*	Right click on sites and select “Add Website”. 
++ express@4.16.4
+added 48 packages in 13.406s
 
-*	Provide Site name and physical path to the app’s deployment folder(C:\inetpub\wwwroot\Publish)
+C:\Users\nacharje\Node\test>
 
-*	Choose https binding.
+* copy the myapp folder to the newly created folder
+* copy the expree-sendfile folder to the newly created folder 
+* open "constants.js"  file  & modifie the  below   url by changing only the ip address(10.173.102.22) with your local syatem ip address.(open cmmond prompt, type ipconfig, find your system ip address)ss
+                                                                                                                                  
+ AcceptJSRequestUrl : 'https://10.173.102.22:8080/myapp/acceptsuite/AcceptJs',
 
-* 	Select SSL Certificate from drop down.
+   AcceptHostedRequestUrl : 'https://10.173.102.22:8080/myapp/acceptsuite/AcceptHosted',
 
-*   Click OK.
+   AcceptCustomerRequestUrl : 'https://10.173.102.22:8080/myapp/acceptsuite/AcceptCustomer',
 
-	![Add-Website](Github-Images/Add-Website.png)
+   ValidateCustomerRequestUrl:'https://10.173.102.22:8080/myapp/acceptsuite/validateCustomer',
+
+* run the "acceptsuite.js "inside myapp folder using the  command "node acceptsuite.js"
+* run the "server.js"  inside express-sendfile using the command "node server.js".
+
+
+
 
 ## browse the website
 
-Sample URL: https://10.173.192.248:5008/index_all.html
+Sample URL: https://10.173.102.22:1482/index_all.html
 
-![Image of dashboard](Github-Images/dashboard.PNG)
+![Image of dashboard](express-sendfile/Github-Images/dashboard.PNG)
