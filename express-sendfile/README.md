@@ -42,9 +42,12 @@ Below are the sample URLs of web api methods
 
 The following are the parameters with values that remains constant throughout the application. These parameters are used in script through Ajax calls for performing payments.
 
-* ClientKey 
+* ClientKey
+![Image of ClientKey](Github-Images/clientKey.PNG)
 * ApiLoginID
+![Image of ApiLoginID](Github-Images/apiLogin.PNG)
 * ApiTransactionKey
+![Image of ApiTransactionKey](Github-Images/apiTransactionKey.PNG)
 
 ### Steps to deploy the application in Express.js
 
