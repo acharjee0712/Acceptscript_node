@@ -6,7 +6,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 
 ## Prerequisite:
-*	Node.js 4.1.2 or higher
+*	Node.js 4.1.2 or higher Download Link: https://nodejs.org/en/download/
 *	Sublime Text/Visual studio code 2017 or any HTML editor.
 *	Express.js
 
@@ -110,7 +110,7 @@ C:\Users\nacharje\Node\test>
 
 * copy the myapp folder to the newly created folder
 * copy the expree-sendfile folder to the newly created folder 
-* open "constants.js"  file  & modifie the  below   url by changing only the ip address(10.173.102.22) with your local syatem ip address.(open cmmond prompt, type ipconfig, find your system ip address)
+* open "constants.js"  file  & modifie the  below   url by changing only the ip address(10.173.102.22) with your local syatem ip address.(open command prompt, type ipconfig, find your system ip address)
                                                                                                                                   
  AcceptJSRequestUrl : 'https://10.173.102.22:8080/myapp/acceptsuite/AcceptJs',
 
